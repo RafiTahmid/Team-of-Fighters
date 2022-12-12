@@ -2,10 +2,15 @@ import React from "react";
 import SinglePlayer from "../SinglePlayer/SinglePlayer";
 import "./Players.css";
 
-const Players = () => {
+const Players = ({ players }) => {
   return (
     <div>
-      <SinglePlayer></SinglePlayer>
+      {/* mapping for all the single player */}
+      <div className="card-container">
+        {players.map((pd) => (
+          <SinglePlayer player={pd} key={pd?.idplayer}></SinglePlayer>
+        ))}
+      </div>
     </div>
   );
 };
