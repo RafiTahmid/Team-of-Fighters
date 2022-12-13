@@ -25,3 +25,14 @@
   padding: 10px;
   margin-right: 15px;
 }
+
+.cart-info-container {
+  display: flex;
+  justify-content: center;
+}
+
+.delete-btn {
+  padding: 5px 8px;
+  margin-left: 10px;
+  background-color: indianred;
+}

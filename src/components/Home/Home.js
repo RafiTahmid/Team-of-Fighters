@@ -33,7 +33,10 @@ const Home = () => {
         <div className="cart">
           <p>This is players cart</p>
           {cart?.map((p) => (
-            <li>{p.idPlayer}</li>
+            <div className="cart-info-container">
+              <li>{p.idPlayer}</li>
+              <button className="delete-btn">X</button>
+            </div>
           ))}
         </div>
       </div>

@@ -13,9 +13,11 @@ const SinglePlayer = ({ player, cart, setCart }) => {
       price: 150,
     };
 
-    if (cart) {
-      const newPlayer = [...cart, info];
-      setCart(newPlayer);
+    if (cart?.length) {
+      setCart = [...cart, info];
+      return;
+    } else {
+      setCart([info]);
     }
   };
 
