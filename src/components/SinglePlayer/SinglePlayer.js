@@ -1,9 +1,23 @@
 import React from "react";
 import "./SinglePlayer.css";
 
-const SinglePlayer = ({ player }) => {
-  const { strNationality, strPlayer, idPlayer, strDescriptionEN, strCutout } =
-    player;
+const SinglePlayer = ({ player, cart, setCart }) => {
+  const { strNationality, strPlayer, idPlayer, strCutout } = player;
+
+  const handleAddToCart = () => {
+    const info = {
+      strNationality,
+      strPlayer,
+      idPlayer,
+      strCutout,
+      price: 150,
+    };
+
+    if (cart) {
+      const newPlayer = [...cart, info];
+      setCart(newPlayer);
+    }
+  };
 
   return (
     <div className="card">
@@ -12,7 +26,9 @@ const SinglePlayer = ({ player }) => {
       <p>{strNationality}</p>
 
       <button className="card-btn">Details</button>
-      <button className="card-btn">Add to Cart</button>
+      <button onClick={handleAddToCart} className="card-btn">
+        Add to Cart
+      </button>
       <button className="card-btn">Bookmark</button>
     </div>
   );

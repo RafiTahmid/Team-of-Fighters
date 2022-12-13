@@ -5,6 +5,7 @@ import "./Home.css";
 const Home = () => {
   const [players, setPlayers] = useState([]);
   const [search, setSearch] = useState("");
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     fetch(
@@ -25,12 +26,15 @@ const Home = () => {
         <button className="search-btn">Search</button>
 
         <div className="players-container">
-          <Players players={players}></Players>
+          <Players players={players} cart={cart} setCart={setCart}></Players>
         </div>
       </div>
       <div className="right-side">
         <div className="cart">
           <p>This is players cart</p>
+          {cart?.map((p) => (
+            <li>{p.idPlayer}</li>
+          ))}
         </div>
       </div>
     </div>
