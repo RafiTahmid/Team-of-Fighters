@@ -15,6 +15,11 @@ const Home = () => {
       .then((data) => setPlayers(data?.player));
   }, [search]);
 
+  const handleDelete = (id) => {
+    const leftPlayer = cart.filter((pd) => pd.idPlayer !== id);
+    setCart(leftPlayer);
+  };
+
   return (
     <div className="home-container">
       <div className="left-side">
@@ -34,8 +39,10 @@ const Home = () => {
           <p>This is players cart</p>
           {cart?.map((p) => (
             <div className="cart-info-container">
-              <li>{p.idPlayer}</li>
-              <button className="delete-btn">X</button>
+              <li>{p.strPlayer}</li>
+              <button onClick={handleDelete} className="delete-btn">
+                X
+              </button>
             </div>
           ))}
         </div>
